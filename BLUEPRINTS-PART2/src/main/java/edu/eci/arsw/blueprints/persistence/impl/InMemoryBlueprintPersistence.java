@@ -30,13 +30,13 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
     public InMemoryBlueprintPersistence() {
         // load stub data
         Point[] pts = new Point[] { new Point(140, 140), new Point(115, 115),new Point(115, 115) };
-        Blueprint bp1 = new Blueprint("David", "Blue-Pro ", pts);
-        Blueprint bp2 = new Blueprint("David", "Blue-Pro1 ", pts);
-        Blueprint bp3 = new Blueprint("Jonatan", "Blue-Pro2 ", pts);
+        Blueprint bp1 = new Blueprint("David", "Pro", pts);
+        Blueprint bp2 = new Blueprint("David", "Red", pts);
+        Blueprint bp3 = new Blueprint("Jonatan", "Blue", pts);
         blueprints.put(new Tuple<>(bp1.getAuthor(), bp1.getName()), bp1);
         blueprints.put(new Tuple<>(bp2.getAuthor(), bp2.getName()), bp2);
         blueprints.put(new Tuple<>(bp3.getAuthor(), bp3.getName()), bp3);
-
+         
     }
 
     @Override
@@ -50,25 +50,43 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
 
     @Override
     public Blueprint getBlueprint(String author, String bprintname) throws BlueprintNotFoundException {
-        return blueprints.get(new Tuple<>(author, bprintname));
+    	//System.out.println(blueprints.get(new Tuple<>(author, bprintname)));
+    	Blueprint result=blueprints.get(new Tuple<>(author, bprintname));
+    	if (result==(null)) {
+    		throw new BlueprintNotFoundException("No existen blueprints con el autor: " + author +" y de nombre: "+bprintname);
+    	}
+    	else {
+    		return result;
+    	}
+        
     }
 
     @Override
-    public Set<Blueprint> getBlueprintsByAuthor(String author) {
+    public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException {
         Set<Blueprint> lista = new HashSet<>();
         blueprints.forEach((key, value) -> {
             if (key.o1.equals(author)){
                 lista.add(value);
             }
         });
-        return lista;
+        if (lista.isEmpty()) {
+            throw new BlueprintNotFoundException("No existen blueprints con el autor seleccionado: "+author);
+        } else {
+            return lista;
+        }
     }
     
-    public Set<Blueprint> getAllBlueprints() {
+    public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException{
         Set<Blueprint> lista = new HashSet<>();
         blueprints.forEach((key, value) -> {
                 lista.add(value);
         });
-        return lista;
+  
+        if (lista.isEmpty()) {
+            throw new BlueprintNotFoundException("No hay blueprints almacenados.");
+        } else {
+            return lista;
+        }
+        
     }
 }

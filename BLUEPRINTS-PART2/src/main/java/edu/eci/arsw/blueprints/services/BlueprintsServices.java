@@ -48,7 +48,7 @@ public class BlueprintsServices {
         }
     }
     
-    public Set<Blueprint> getAllBlueprints(){
+    public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException{
         Set<Blueprint> nueva = new HashSet<>();
         for (Blueprint bp:bpp.getAllBlueprints()){
             nueva.add(bpf.filtrate(bp));
