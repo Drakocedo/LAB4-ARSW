@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  *
  * @author david.caycedo
  */
-public interface filter {
+public interface filtrar {
     
     
     public Blueprint filtrate(Blueprint bp);

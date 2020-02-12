@@ -7,7 +7,7 @@ package edu.eci.arsw.blueprints.filters.impl;
 
 import java.util.Set;
 
-import edu.eci.arsw.blueprints.filters.filter;
+import edu.eci.arsw.blueprints.filters.filtrar;
 import edu.eci.arsw.blueprints.model.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
  */
 @Component("redundancy")
 
-public class Redundancy implements filter {
+public class Redundancy implements filtrar {
 
     @Override
     public Blueprint filtrate(Blueprint bp) {

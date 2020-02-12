@@ -5,7 +5,7 @@
  */
 package edu.eci.arsw.blueprints.services;
 
-import edu.eci.arsw.blueprints.filters.filter;
+import edu.eci.arsw.blueprints.filters.filtrar;
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
@@ -36,8 +36,8 @@ public class BlueprintsServices {
     BlueprintsPersistence bpp;
     
     @Autowired
-    @Qualifier("subsampling")
-    Filter bpf;
+    @Qualifier("redundancy")
+    filtrar bpf;
     
     
     public void addNewBlueprint(Blueprint bp){

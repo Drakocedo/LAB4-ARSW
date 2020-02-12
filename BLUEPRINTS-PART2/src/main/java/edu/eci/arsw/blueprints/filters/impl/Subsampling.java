@@ -8,7 +8,7 @@ package edu.eci.arsw.blueprints.filters.impl;
 import java.util.HashSet;
 import java.util.Set;
 
-import edu.eci.arsw.blueprints.filters.filter;
+import edu.eci.arsw.blueprints.filters.filtrar;
 import edu.eci.arsw.blueprints.model.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
  * @author david.caycedo
  */
 @Component("subsampling")
-public class Subsampling implements filter{
+public class Subsampling implements filtrar{
 
    
 
