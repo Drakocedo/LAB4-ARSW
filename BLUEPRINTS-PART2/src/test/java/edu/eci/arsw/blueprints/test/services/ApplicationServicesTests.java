@@ -1,5 +1,7 @@
 package edu.eci.arsw.blueprints.test.services;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
@@ -17,12 +19,8 @@ public class ApplicationServicesTests {
     //RestaurantOrderServicesStub ros;
 
     
-    @Test
-    public void contextLoads() {
-        
-        
-        
-        
-    }
-
+    /* @Test
+    public void contextLoads() { 
+        assertEquals(true, true);
+    } */
 }
