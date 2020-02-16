@@ -5,17 +5,13 @@
  */
 package edu.eci.arsw.blueprints.filters.impl;
 
-import java.util.Set;
-
 import edu.eci.arsw.blueprints.filters.filtrar;
 import edu.eci.arsw.blueprints.model.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 
 /**

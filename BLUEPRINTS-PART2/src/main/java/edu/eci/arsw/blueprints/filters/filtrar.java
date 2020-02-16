@@ -6,16 +6,11 @@
 package edu.eci.arsw.blueprints.filters;
 
 import edu.eci.arsw.blueprints.model.*;
-import java.util.Set;
-
-import org.springframework.stereotype.Component;
 
 /**
  *
  * @author david.caycedo
  */
 public interface filtrar {
-    
-    
     public Blueprint filtrate(Blueprint bp);
 }
