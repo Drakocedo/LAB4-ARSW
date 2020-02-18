@@ -2,4 +2,4 @@
 
 ## Realizado por: Jonatan Esteban Gonzalez Rodriguez y David Eduardo Caycedo
 
-![readme.md](/BLUEPRINTS-PART2)
+ [README.md](/BLUEPRINTS-PART2)
