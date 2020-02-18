@@ -58,6 +58,15 @@ public class BlueprintsServices {
        
     }
     
+    public void upDateBlueprint(Blueprint bp,String author,String name){
+        try {
+            bpp.updateBlueprint(bp, author, name);
+        } catch (BlueprintPersistenceException ex) {
+            Logger.getLogger(BlueprintsServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
     /**
      * 
      * @param author blueprint's author

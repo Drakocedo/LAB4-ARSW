@@ -23,6 +23,7 @@ public class Blueprint {
          
     public Blueprint(String author, String name){
         this.name=name;
+        this.author=author;
         points=new ArrayList<>();
     }
 

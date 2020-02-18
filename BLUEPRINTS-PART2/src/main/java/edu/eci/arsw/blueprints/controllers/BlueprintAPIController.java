@@ -79,18 +79,18 @@ public class BlueprintAPIController {
             return new ResponseEntity<>(ex.getMessage(),HttpStatus.FORBIDDEN);            
         }
     }
-    /* curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints -d "{"author":"Ana","points":[{"x":20,"y":30},{"x":75,"y":150}],"name":"Green"}" */
+    /* curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints -d "{"""author""":"""Caro""","""points""":[{"""x""":140,"""y""":140},{"""x""":115,"""y""":115}],"""name""":"""Ping"""}" */
 
-    @RequestMapping(method = RequestMethod.PUT, path = "{author}/{bpname}")	
+    @RequestMapping(method = RequestMethod.PUT, path = "/blueprints/{author}/{bpname}")	
     public ResponseEntity<?> manejadorPUTRecursoActualizarPlano(@RequestBody Blueprint blueprint,@PathVariable("author") String author,@PathVariable("bpname") String plano){    
         try {
-            bps.getBlueprint(author, plano).setPoints(blueprint.getPoints());
+            bps.upDateBlueprint(blueprint, author, plano);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(ex.getMessage(),HttpStatus.FORBIDDEN);            
         }
     }
-    /* curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints/Jonatan/Blue -d "{"author":"Jonatan","points":[{"x":25,"y":50},{"x":115,"y":100}],"name":"Blue"}" */
+    /* curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints/Drako/doggy -d "{"""author""":"""Caro""","""points""":[{"""x""":140,"""y""":140},{"""x""":115,"""y""":115}],"""name""":"""Ping"""}" */
     
 }

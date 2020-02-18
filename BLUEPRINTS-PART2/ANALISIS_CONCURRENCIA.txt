@@ -1,0 +1,12 @@
+Qué condiciones de carrera se podrían presentar?
+
+Se podria consultar un blueprint que se este modificando al mismo tiempo por otro usuario, o dos usuarios podrian modificar el mismo blueprint.
+
+
+Cuales son las respectivas regiones críticas?
+
+la parte de actualizar o consultar un blueprint
+
+Solucion 
+
+Se utilizo un hasmap concurrente que es thread safe y funciona para multiples procesos.
