@@ -96,6 +96,9 @@ public InMemoryBlueprintPersistence() {
 ![](img/media/blueprints.PNG)
 
 5. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}, el cual retorne usando una representación jSON todos los planos realizados por el autor cuyo nombre sea {author}. Si no existe dicho autor, se debe responder con el código de error HTTP 404. Para esto, revise en [la documentación de Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html), sección 22.3.2, el uso de @PathVariable. De nuevo, verifique que al hacer una petición GET -por ejemplo- a recurso http://localhost:8080/blueprints/juan, se obtenga en formato jSON el conjunto de planos asociados al autor 'juan' (ajuste esto a los nombres de autor usados en el punto 2).
+
+Prueba: http://localhost:8080/blueprints/David
+
 ```java	
     @RequestMapping(value = "/blueprints/{author}",method = RequestMethod.GET)
     
@@ -116,6 +119,8 @@ public InMemoryBlueprintPersistence() {
     }
 ```
 6. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}/{bpname}, el cual retorne usando una representación jSON sólo UN plano, en este caso el realizado por {author} y cuyo nombre sea {bpname}. De nuevo, si no existe dicho autor, se debe responder con el código de error HTTP 404. 
+
+Prueba: http://localhost:8080/blueprints/David/Pro
 
 ```java	
 @RequestMapping(value = "/blueprints/{author}/{bpname}",method = RequestMethod.GET)
@@ -179,7 +184,12 @@ public InMemoryBlueprintPersistence() {
 	```
 	```
 	curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints -d "{"""author""":"""Caro""","""points""":[{"""x""":140,"""y""":140},{"""x""":115,"""y""":115}],"""name""":"""Ping"""}"
+	
 	```
+	Despues de ejcutar el comando anterior.
+	
+	Prueba: http://localhost:8080/blueprints/Caro
+	
 	Con lo anterior, registre un nuevo plano (para 'diseñar' un objeto jSON, puede usar [esta herramienta](http://www.jsoneditoronline.org/)):
 	
 
@@ -204,9 +214,16 @@ public InMemoryBlueprintPersistence() {
         }
     }
  ```
+ 
+ Despues de ejecutar el comando de post anterior, ejecute:
+ 
+ 
  ```
  curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints/Drako/doggy -d "{"""author""":"""Caro""","""points""":[{"""x""":140,"""y""":140},{"""x""":115,"""y""":115}],"""name""":"""Ping"""}"
 ```
+
+Prueba: http://localhost:8080/blueprints
+
 ### Parte III
 
 El componente BlueprintsRESTAPI funcionará en un entorno concurrente. Es decir, atederá múltiples peticiones simultáneamente (con el stack de aplicaciones usado, dichas peticiones se atenderán por defecto a través múltiples de hilos). Dado lo anterior, debe hacer una revisión de su API (una vez funcione), e identificar:
