@@ -3,6 +3,13 @@
 
 ### Arquitecturas de Software
 
+Desde el directorio ```/BLUEPRINTS-PART2```
+
+
+Para compilar :``` mvn compile``` 
+Para correrlo: ```mvn spring-boot:run```
+
+http://localhost:8080/blueprints
 
 ## Laboratorio API REST para la gestión de planos
 
